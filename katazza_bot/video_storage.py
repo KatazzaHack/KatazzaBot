@@ -1,5 +1,5 @@
 from singleton import Singleton
-
+import random
 
 @Singleton
 class VideoStorage:
