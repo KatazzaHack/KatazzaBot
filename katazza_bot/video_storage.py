@@ -1,4 +1,4 @@
-from singleton import Singleton
+from katazza_bot.singleton import Singleton
 import random
 
 @Singleton
