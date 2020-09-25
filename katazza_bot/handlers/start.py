@@ -1,4 +1,5 @@
-from telegram.ext import CommandHandler, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import CommandHandler
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from katazza_bot.video_storage import VideoStorage
 
 
