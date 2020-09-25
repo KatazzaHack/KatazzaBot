@@ -3,6 +3,8 @@ from singleton import Singleton
 
 @Singleton
 class VideoStorage:
+    themes_ = ["Car driving advice", "Gardening", "Java", "How does house work", "Skiing tricks", "Germany", "Makeup", "Interior design", "Football", "Trading"]
+    times_ = ["3", "5", "7", "10"]
     videos_ = {
         "Car driving advice": {
         3: "https://www.youtube.com/watch?v=ASp_OTZ5fN8",
@@ -69,8 +71,8 @@ class VideoStorage:
     rick_rolling_video_ = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
 
     def get_video(self, length, theme):
-        key = (length, theme)
-        if key in self.videos_:
-            return self.videos_[key]
+        if theme in self.videos_:
+          if length in self.videos_[theme]:
+            return self.videos_[theme][length]
         else:
             return self.rick_rolling_video_
