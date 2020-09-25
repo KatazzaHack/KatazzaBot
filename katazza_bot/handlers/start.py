@@ -1,9 +1,19 @@
-from telegram.ext import CommandHandler
+from telegram.ext import CommandHandler, InlineKeyboardButton, InlineKeyboardMarkup
+from katazza_bot.video_storage import VideoStorage
+
 
 
 def start(update, context):
-    context.bot.send_message(
-        chat_id=update.effective_chat.id, text="I'm a bot, please talk to me!")
+    choose_theme(update, context)
+
+def choose_theme(update, context):
+    random_themes = VideoStorage.get_random_themes()
+    keyboard = [[InlineKeyboardButton(random_themes[0], callback_data=random_themes[0]),
+                 InlineKeyboardButton(random_themes[1], callback_data=random_themes[1]),
+                InlineKeyboardButton(random_themes[2], callback_data=random_themes[2])]]
+
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    update.message.reply_text('Please choose the theme:', reply_markup=reply_markup)
 
 
 start_handler = CommandHandler('start', start)
