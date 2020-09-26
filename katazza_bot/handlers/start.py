@@ -8,7 +8,7 @@ def start(update, context):
     choose_theme(update, context)
 
 def choose_theme(update, context):
-    random_themes = VideoStorage.get_random_themes()
+    random_themes = VideoStorage.instance().get_random_themes()
     keyboard = [[InlineKeyboardButton(random_themes[0], callback_data=random_themes[0]),
                  InlineKeyboardButton(random_themes[1], callback_data=random_themes[1]),
                 InlineKeyboardButton(random_themes[2], callback_data=random_themes[2])]]
