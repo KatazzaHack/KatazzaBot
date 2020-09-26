@@ -26,7 +26,7 @@ def callback_length(update, context):
     query.answer()
 
     query.edit_message_text(
-        text=VideoStorage.get_video(int(context.user_data["length"]), context.user_data["theme"]))
+        text=VideoStorage.instance().get_video(int(context.user_data["length"]), context.user_data["theme"]))
 
 
 def callback_inline(update, context):
