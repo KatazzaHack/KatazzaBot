@@ -24,9 +24,14 @@ def callback_length(update, context):
     # CallbackQueries need to be answered, even if no notification to the user is needed
     # Some clients may have trouble otherwise. See https://core.telegram.org/bots/api#callbackquery
     query.answer()
-
+    random_themes = sorted(VideoStorage.instance().get_random_themes(), key=lambda x: len(x))
+    keyboard = [[InlineKeyboardButton(random_themes[0], callback_data=random_themes[0]),
+                 InlineKeyboardButton(random_themes[1], callback_data=random_themes[1])],
+                [InlineKeyboardButton(random_themes[2], callback_data=random_themes[2])]]
+    reply_markup = InlineKeyboardMarkup(keyboard)
     query.edit_message_text(
-        text=VideoStorage.instance().get_video(int(context.user_data["length"]), context.user_data["theme"]))
+        text=VideoStorage.instance().get_video(int(context.user_data["length"]), context.user_data["theme"]),
+        reply_markup=reply_markup)
 
 
 def callback_inline(update, context):
