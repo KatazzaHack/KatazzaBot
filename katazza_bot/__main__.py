@@ -14,5 +14,7 @@ def run(telegram_bot_token=TELEGRAM_BOT_TOKEN):
 
     updater.start_polling()
 
+    updater.idle()
+
 if __name__ == '__main__':
     run()
