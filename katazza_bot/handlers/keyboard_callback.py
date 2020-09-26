@@ -5,7 +5,7 @@ from katazza_bot.video_storage import VideoStorage
 def callback_theme(update, context):
     query = update.callback_query
     context.user_data["theme"] = query.data
-    times = VideoStorage.get_times()
+    times = VideoStorage.instance().get_times()
 
     # CallbackQueries need to be answered, even if no notification to the user is needed
     # Some clients may have trouble otherwise. See https://core.telegram.org/bots/api#callbackquery
@@ -31,9 +31,9 @@ def callback_length(update, context):
 
 def callback_inline(update, context):
     query = update.callback_query
-    if query.data in VideoStorage.get_videos():
+    if query.data in VideoStorage.instance().get_themes():
         callback_theme(update, context)
-    elif query.data in VideoStorage.get_times():
+    elif query.data in VideoStorage.instance().get_times():
         callback_length(update, context)
     else:
         query.answer()
