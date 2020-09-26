@@ -67,8 +67,6 @@ class VideoStorage:
             10: "https://www.youtube.com/watch?v=ExD_Sql_4So&ab_channel=FootballDaily",
         },
     }
-    themes_ = ['aesc']
-    times_ = ['3', '5', '7', '10']
 
     rick_rolling_video_ = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
 
