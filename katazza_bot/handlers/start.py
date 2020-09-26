@@ -4,7 +4,7 @@ from katazza_bot.video_storage import VideoStorage
 
 
 def choose_theme(update, context):
-    random_themes = sorted(VideoStorage.instance().get_random_themes())
+    random_themes = sorted(VideoStorage.instance().get_random_themes(), key=lambda x: len(x))
     keyboard = [[InlineKeyboardButton(random_themes[0], callback_data=random_themes[0]),
                  InlineKeyboardButton(random_themes[1], callback_data=random_themes[1])],
                 [InlineKeyboardButton(random_themes[2], callback_data=random_themes[2])]]
