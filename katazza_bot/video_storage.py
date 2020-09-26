@@ -83,5 +83,5 @@ class VideoStorage:
     def get_times(self):
         return self.times_
 
-    def get_times(self):
-        return self.times_
+    def get_themes(self):
+        return self.themes_
